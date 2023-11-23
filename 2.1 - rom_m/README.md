@@ -1,0 +1,2 @@
+## Exercise 1.2
+Design, implement in VHDL, and test through simulation a system S composed of a purely combinatorial ROM with 16 locations, each holding 8 bits, and a combinatorial machine M that operates as follows: given a 4-bit address A, the system returns the value stored in the ROM at address A appropriately "transformed" through machine M. The behavior of machine M is entirely at the discretion of the student, the only constraint being that it takes 8 bits as input and provides 4 bits as output.
