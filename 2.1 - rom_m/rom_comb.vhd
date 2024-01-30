@@ -1,45 +1,14 @@
-----------------------------------------------------------------------------------
--- Company: 
--- Engineer: 
--- 
--- Create Date: 23.11.2023 16:23:34
--- Design Name: 
--- Module Name: rom_comb - Behavioral
--- Project Name: 
--- Target Devices: 
--- Tool Versions: 
--- Description: 
--- 
--- Dependencies: 
--- 
--- Revision:
--- Revision 0.01 - File Created
--- Additional Comments:
--- 
-----------------------------------------------------------------------------------
-
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx leaf cells in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
 entity rom_comb is
-    Generic(width : positive := 8;
-            depth : positive := 4);                           -- in questo caso 16 locazioni (2^4) a 8 bit
-    Port ( address : in STD_LOGIC_VECTOR (depth - 1 downto 0);
-           data : out STD_LOGIC_VECTOR (width - 1 downto 0);
+    Port ( address : in STD_LOGIC_VECTOR (3 downto 0);  -- depth: 4
+           data : out STD_LOGIC_VECTOR (7 downto 0);    -- widht: 8
            enable : in STD_LOGIC);
 end rom_comb;
 
-architecture Behavioral of rom_comb is
+architecture Dataflow of rom_comb is
     begin
     data <= "00000000" when (address = "0000" and enable = '1') else
             "00000001" when (address = "0001" and enable = '1') else
@@ -58,4 +27,4 @@ architecture Behavioral of rom_comb is
             "00001110" when (address = "1110" and enable = '1') else
             "00001111" when (address = "1111" and enable = '1') else
             "--------";
-end Behavioral;
+end Dataflow;
