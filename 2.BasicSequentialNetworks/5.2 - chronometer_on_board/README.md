@@ -1,0 +1,2 @@
+Exercise 5.2
+Synthesize and implement on board the component developed at the previous point, using the 7-segment displays for the time display (or a combination of display and LEDs in case the displays available are less than necessary), the switches for the input of the initial time and two buttons, one for the set of the time and one for the reset. Use a coding of the student’s choice for the time display on the displays (hexadecimal or decimal).
