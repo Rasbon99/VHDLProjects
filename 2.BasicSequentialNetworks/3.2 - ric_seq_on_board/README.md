@@ -1,0 +1,2 @@
+# Exercise 3.2
+Synthesize and implement on the board the network developed at the previous point, using a switch S1 to encode the input i and a switch S2 to encode the mode M, in combination with two buttons B1 and B2 used respectively to acquire the input from S1 and S2 in sync with the timing signal A, which must be obtained from the board clock. Finally, the output Y can be encoded using a LED.
