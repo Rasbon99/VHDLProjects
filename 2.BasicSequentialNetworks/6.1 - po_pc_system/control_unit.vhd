@@ -60,7 +60,6 @@ architecture Behavioral of control_unit is
                         end if;
                         
                     when boot =>
-                        count_enable <= '1';
                         count_reset <= '0';
                         next_state <= count;
                     
