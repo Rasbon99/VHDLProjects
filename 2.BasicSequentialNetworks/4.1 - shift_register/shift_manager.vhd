@@ -15,9 +15,11 @@ end shift_manager;
 
 architecture Behavioral of shift_manager is
 
-    type state is (idle, boot_load, memo, shift_sx, shift_dx);
+    type state is (idle, boot_load, memo, shift_sx, second_shift_sx, shift_dx, second_shift_dx);
     signal current_state : state := idle;
     signal next_state : state;
+    signal count : integer := 0;
+
      
     begin
     
@@ -56,12 +58,9 @@ architecture Behavioral of shift_manager is
 --              Questo stato è utilizzato per spostare i dati a destra nello shift register.
 --      - '0':  quando 'shift_enable' è '0', il sistema rimane nello stato corrente.
 
+        
+        FSM: process (current_state, load, shift_enable)
 
-        
-        FSM: process (current_state, load, shift_enable, direction)
-        
-            variable count : integer := 0;
-        
             begin
                 case current_state is 
                     
@@ -83,38 +82,49 @@ architecture Behavioral of shift_manager is
                     
                     when memo =>
                         if (load = '1') then
-                            next_state <= idle;
+                            selection <= "00";
+                            next_state <= boot_load;
                         elsif (shift_enable = '1' and direction = '0') then
                             selection <= "01";
-                            count := count + 1;
+                            count <= count + 1;
                             next_state <= shift_sx;
                         elsif (shift_enable = '1' and direction = '1') then
                             selection <= "10";
-                            count := count + 1;
+                            count <= count + 1;
                             next_state <= shift_dx; 
                         else
                             next_state <= memo;   
                         end if;
                         
                     when shift_sx =>
-                        if (count < Y) then
-                            count := count + 1;
-                            next_state <= shift_sx;
-                        elsif (count = Y) then
+                        if (count >= Y) then
                             selection <= "11";
-                            count := 0;
-                            next_state <= memo;                        
+                            count <= 0;
+                            next_state <= memo;
+                        elsif (count < Y) then
+                            count <= count + 1;
+                            next_state <= second_shift_sx;                        
                         end if;
+                        
+                    when second_shift_sx =>
+                        selection <= "11";
+                        count <= 0;
+                        next_state <= memo;
                                                                                                            
                     when shift_dx =>
                         if (count < Y) then
-                            count := count + 1;
-                            next_state <= shift_dx;
-                        elsif (count = Y) then
+                            count <= count + 1;
+                            next_state <= second_shift_dx;
+                        elsif (count >= Y) then
                             selection <= "11";
-                            count := 0;
+                            count <= 0;
                             next_state <= memo;
                         end if;
+                        
+                    when second_shift_dx =>
+                        selection <= "11";
+                        count <= 0;
+                        next_state <= memo;
 
                 end case;                
         end process;
