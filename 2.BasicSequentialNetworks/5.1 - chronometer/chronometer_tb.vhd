@@ -31,7 +31,7 @@ architecture Testbench of chronometer_tb is
     signal hour_output : integer range 0 to 23 := 0;
     signal nano_output : integer := 0;
     
-    constant clock_period : time := 10 ns;      -- 10 ns
+    constant clock_period : time := 1 ns;      -- 10 ns
 
     begin
     
@@ -68,7 +68,7 @@ architecture Testbench of chronometer_tb is
                 min_input <= 24;
                 hour_input <= 10;
                 
-                wait for 2*clock_period;
+                wait for clock_period;
                 
                 load <= '0';
                 
