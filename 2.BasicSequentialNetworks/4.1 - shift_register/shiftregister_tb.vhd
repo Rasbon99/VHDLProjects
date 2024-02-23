@@ -25,7 +25,7 @@ architecture Testbench of shiftregister_tb is
     signal output : STD_LOGIC_VECTOR(N_tb - 1 downto 0) := (others => 'U');
     signal clock : STD_LOGIC := '0';
     signal reset : STD_LOGIC := '1';
-    signal shift : integer range 1 to 2 := 1;
+    signal shift : integer range 1 to 2 := 2;
     signal dir : STD_LOGIC := 'U';
     signal load : STD_LOGIC:= '0';
     signal EI, EO : STD_LOGIC := '0';
@@ -86,7 +86,7 @@ architecture Testbench of shiftregister_tb is
             
             reset <= '1';
             
-            dir <= '1';
+            dir <= '0';
             
             EI <= '1'; 
             
@@ -118,7 +118,7 @@ architecture Testbench of shiftregister_tb is
             input <= "0101";
             load <= '1';
             
-            wait for 2*clk_period;
+            wait for clk_period;
             
             load <= '0';
             
