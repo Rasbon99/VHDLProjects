@@ -26,16 +26,15 @@ architecture Structural of booth_multiplier_n is
                 count_in : in STD_LOGIC_VECTOR(integer(ceil(log2(real(N)))) - 1 downto 0);
                 q0_1 : in STD_LOGIC_VECTOR(1 downto 0);
                 an_1 : in STD_LOGIC;
-                read_aq : out STD_LOGIC;
-                load_aq : out STD_LOGIC;
-                sel_aq : out STD_LOGIC;
-                load_m : out STD_LOGIC;
-                sel_sum : out STD_LOGIC;
-                sub : out STD_LOGIC;
-                shift : out STD_LOGIC;
-                fill : out STD_LOGIC;
-                reset_counter : out STD_LOGIC;
-                enable_counter : out STD_LOGIC);
+                read_aq : out STD_LOGIC := '0';
+                load_aq : out STD_LOGIC := '0';
+                sel_aq : out STD_LOGIC := '0';
+                load_m : out STD_LOGIC := '0';
+                sel_sum : out STD_LOGIC := '0';
+                sub : out STD_LOGIC := '0';
+                shift : out STD_LOGIC := '0';
+                reset_counter : out STD_LOGIC := '0';
+                enable_counter : out STD_LOGIC:= '0');
     end component;
     
     -- COUNTER MOD N
@@ -111,7 +110,6 @@ architecture Structural of booth_multiplier_n is
     signal sel_sum_wire : STD_LOGIC := '0';
     signal sub_wire : STD_LOGIC := '0';
     signal shift_wire : STD_LOGIC := '0';
-    signal fill_wire : STD_LOGIC := '0';
     signal reset_counter_wire : STD_LOGIC := '0';
     signal enable_counter_wire : STD_LOGIC := '0';
     signal mux_out_aq_wire : STD_LOGIC_VECTOR (2*N downto 0) := (others => '0');
@@ -144,7 +142,6 @@ architecture Structural of booth_multiplier_n is
             sel_sum => sel_sum_wire,
             sub => sub_wire,
             shift => shift_wire,
-            fill => fill_wire,
             reset_counter => reset_counter_wire,
             enable_counter => enable_counter_wire);
             
@@ -166,6 +163,13 @@ architecture Structural of booth_multiplier_n is
             data_in => y,
             load => load_m_wire,
             data_out => data_out_m_wire);
+            
+        REG_P: reg generic map (N => 2*N) port map(
+            clk => clock,
+            reset => reset,
+            data_in => aq,
+            load => read_aq_wire,
+            data_out => p);
             
         COUNTER: counter_mod_n port map(
             CLK_cmn => clock,
@@ -199,6 +203,4 @@ architecture Structural of booth_multiplier_n is
         sub_string_wire <= (others => sub_wire);      
         xor_out_wire <= sub_string_wire xor data_out_m_wire;
         
-        p <= aq when read_aq_wire = '1';
-
 end Structural;
