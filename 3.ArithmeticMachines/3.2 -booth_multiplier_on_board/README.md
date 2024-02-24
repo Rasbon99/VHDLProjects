@@ -1,0 +1,2 @@
+# Exercise 7.2
+Synthesize the multiplier implemented in point 7.1 on FPGA and test it using the input/output devices (switches, buttons, LEDs, display) available on the supplied development board. The mode of use of these devices is at the complete discretion of the students.
