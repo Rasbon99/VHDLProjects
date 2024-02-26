@@ -1,0 +1,2 @@
+# Exercise 11.1
+Design and implement in VHDL a multistage switch according to the omega network model. The switch must allow the exchange of 2-bit messages from a source node to a destination node in a network with 4 nodes, implementing a fixed priority scheme among the nodes (e.g., node 1 is the highest priority, with decreasing priorities up to node 4).
