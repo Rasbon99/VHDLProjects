@@ -1,0 +1,2 @@
+# Exercise 5.3
+Extend the component developed in the previous points so that it is able to acquire and store internally up to a number N of intervals at a stop input. Optionally, the component can provide a display mode in which, at the press of a button, the stored intervals are displayed on the displays (one for each press).
