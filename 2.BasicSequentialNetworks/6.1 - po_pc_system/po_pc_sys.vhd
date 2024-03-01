@@ -34,6 +34,7 @@ architecture Behavioral of po_pc_sys is
                 count_enable : out STD_LOGIC;
                 rom_read : out STD_LOGIC;
                 mem_write : out STD_LOGIC;
+                mem_read : out STD_LOGIC;
                 stop : out STD_LOGIC);
     end component;
     
@@ -72,6 +73,7 @@ architecture Behavioral of po_pc_sys is
                 mem_address : in STD_LOGIC_VECTOR(log2N - 1 downto 0); 
                 clock : in STD_LOGIC;
                 mem_write : in STD_LOGIC;
+                mem_read : in STD_LOGIC;
                 mem_output : out STD_LOGIC_VECTOR(3 downto 0));
     end component;
     
@@ -81,8 +83,9 @@ architecture Behavioral of po_pc_sys is
     signal clock_wire : STD_LOGIC := '0';
     signal count_reset_wire : STD_LOGIC := '0';
     signal count_enable_wire : STD_LOGIC := '0';
-    signal read_wire : STD_LOGIC := '0';
-    signal write_wire : STD_LOGIC := '0';
+    signal rom_read_wire : STD_LOGIC := '0';
+    signal mem_write_wire : STD_LOGIC := '0';
+    signal mem_read_wire : STD_LOGIC := '0';
     signal rom_output : STD_LOGIC_VECTOR (7 downto 0) := (others => '0');
     signal m_output : STD_LOGIC_VECTOR (3 downto 0) := (others => '0');
 
@@ -95,15 +98,16 @@ architecture Behavioral of po_pc_sys is
             clock => clock,
             count_reset => count_reset_wire,
             count_enable => count_enable_wire,
-            rom_read => read_wire,
-            mem_write => write_wire,
+            rom_read => rom_read_wire,
+            mem_read => mem_read_wire,
+            mem_write => mem_write_wire,
             stop => stop);
             
         ROM : rom_seq generic map (N => N) port map (
             rom_address => address_wire,
             rom_output => rom_output,
             clock => clock,
-            rom_read => read_wire);
+            rom_read => rom_read_wire);
             
         M : m_machine port map (
             m_input => rom_output,
@@ -113,7 +117,8 @@ architecture Behavioral of po_pc_sys is
             mem_input => m_output,
             mem_address => address_wire,
             clock => clock,
-            mem_write => write_wire,
+            mem_write => mem_write_wire,
+            mem_read => mem_read_wire,
             mem_output => data_out);
             
         COUNTER : counter_mod_n generic map (N_cmn => N) port map (

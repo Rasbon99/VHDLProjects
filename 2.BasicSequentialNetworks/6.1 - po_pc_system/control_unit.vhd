@@ -14,12 +14,13 @@ entity control_unit is
             count_enable : out STD_LOGIC;
             rom_read : out STD_LOGIC;
             mem_write : out STD_LOGIC;
+            mem_read : out STD_LOGIC;
             stop : out STD_LOGIC);
 end control_unit;
 
 architecture Behavioral of control_unit is
     
-    type state is (idle, boot, count, read, wait_m, write);
+    type state is (idle, loop_state, count, read, wait_m);
     signal current_state : state := idle;
     signal next_state : state;
     
@@ -46,61 +47,47 @@ architecture Behavioral of control_unit is
         
         next_state_proc: process (current_state, start)
             begin
+                count_reset <= '0';
+                count_enable <= '0';
+                rom_read <= '0';
+                mem_write <= '0';
+                mem_read <= '0';
+                stop <= '0';
+            
                 case current_state is
                 
                     when idle =>
                         if (start = '1') then
-                            stop <= '0';
                             count_reset <= '1';
-                            next_state <= boot;
+                            next_state <= loop_state;
                         elsif (start = '0') then
-                            stop <= '0';
-                            count_enable <= '0';
+                            stop <= '1';
                             next_state <= idle;
                         end if;
                         
-                    when boot =>
-                        count_reset <= '0';
-                        next_state <= count;
-                    
-                    when count =>
+                    when loop_state =>
                         rom_read <= '1';
-                        count_enable <= '0';
                         next_state <= read;
                         
                     when read =>
-                        rom_read <= '0';
-                        mem_write <= '0';
                         next_state <= wait_m;
                     
                     -- Lo stato wait_m ritarda di un colpo di clock
                     -- la write ipotizzando che la rete combinatoria M
                     -- abbia un tale tempo di propagazione.
-                     
+                        
                     when wait_m =>
-                        rom_read <= '0';
                         mem_write <= '1';
-                        next_state <= write;
-                        
-                    when write =>
-                        if (last_cycle = '1') then
-                            stop <= '1';
-                            mem_write <= '0';
-                            count_enable <= '0';
-                            last_cycle <= '0';
-                            next_state <= idle;
+                        next_state <= count;
                     
-                        elsif (to_integer(unsigned(address)) = N - 1) then
-                            mem_write <= '0';
+                    when count =>
+                        mem_read <= '1';
+                        if (to_integer(unsigned(address)) = N - 1) then
+                            stop <= '1';
+                            next_state <= idle;
+                        else 
                             count_enable <= '1';
-                            last_cycle <= '1';
-                            next_state <= count;
-                        else
-                            mem_write <= '0';
-                            count_enable <= '1';
-                            last_cycle <= '0';
-                            next_state <= count;
-                        
+                            next_state <= loop_state;
                         end if;
                         
                 end case;                    

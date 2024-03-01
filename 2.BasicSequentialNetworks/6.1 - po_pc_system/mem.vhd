@@ -10,6 +10,7 @@ entity mem is
             mem_address : in STD_LOGIC_VECTOR(integer(ceil(log2(real(N)))) - 1 downto 0); 
             clock : in STD_LOGIC;
             mem_write : in STD_LOGIC;
+            mem_read : in STD_LOGIC;
             mem_output : out STD_LOGIC_VECTOR(3 downto 0));
 end mem;
 
@@ -24,7 +25,10 @@ architecture Behavioral of mem is
                 if (clock'event and clock = '1') then
                     if (mem_write = '1') then
                         mem(to_integer(unsigned(mem_address))) <= mem_input;
-                        mem_output <= mem_input;
+                        
+                    elsif (mem_read = '1') then
+                        mem_output <= mem(to_integer(unsigned(mem_address)));
+                        
                     end if;
                 end if;
         end process;
