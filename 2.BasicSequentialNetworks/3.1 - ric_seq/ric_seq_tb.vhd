@@ -11,6 +11,7 @@ architecture Behavioral of ric_seq_tb is
            A : in STD_LOGIC;
            M : in STD_LOGIC;
            R : in STD_LOGIC;
+           E : in STD_LOGIC;
            Y : out STD_LOGIC);
     end component;
 
@@ -18,6 +19,7 @@ architecture Behavioral of ric_seq_tb is
    signal i : std_logic := '0';
    signal A : std_logic := '0';
    signal M : std_logic := '0';
+   signal E : std_logic := '0';
    signal R : std_logic := '0';
 
     -- OUTPUT
@@ -34,6 +36,7 @@ begin
           A => A,
           M => M,
           R => R,
+          E => E,
           Y => Y
         );
 
@@ -52,6 +55,7 @@ begin
         wait for 50 ns;
 
         -- TESTING
+        E <= '1';
         
         -- MODE 0: SEQUENZE NON SOVRAPPOSTE
         M <= '0'; 
