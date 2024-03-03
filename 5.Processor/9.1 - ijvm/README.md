@@ -1,0 +1,2 @@
+# Exercise 9.1
+Starting from the provided implementation of the processor operating according to the IJVM model, let's proceed with the analysis of the architecture through simulation and delve into the study of its functioning for two chosen instructions.
