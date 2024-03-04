@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="shiftregister_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="shiftregister_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="157930fs"></ZoomStartTime>
+      <ZoomEndTime time="698431fs"></ZoomEndTime>
+      <Cursor1Time time="220930fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="340"></NameColumnWidth>
+      <ValueColumnWidth column_width="115"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/shiftregister_tb/input" type="array">
+      <obj_property name="ElementShortName">input[3:0]</obj_property>
+      <obj_property name="ObjectShortName">input[3:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/shiftregister_tb/output" type="array">
+      <obj_property name="ElementShortName">output[3:0]</obj_property>
+      <obj_property name="ObjectShortName">output[3:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/shiftregister_tb/clock" type="logic">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/shiftregister_tb/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/shiftregister_tb/load" type="logic">
+      <obj_property name="ElementShortName">load</obj_property>
+      <obj_property name="ObjectShortName">load</obj_property>
+   </wvobject>
+   <wvobject fp_name="/shiftregister_tb/dir" type="logic">
+      <obj_property name="ElementShortName">dir</obj_property>
+      <obj_property name="ObjectShortName">dir</obj_property>
+   </wvobject>
+   <wvobject fp_name="/shiftregister_tb/EI" type="logic">
+      <obj_property name="ElementShortName">EI</obj_property>
+      <obj_property name="ObjectShortName">EI</obj_property>
+   </wvobject>
+   <wvobject fp_name="/shiftregister_tb/EO" type="logic">
+      <obj_property name="ElementShortName">EO</obj_property>
+      <obj_property name="ObjectShortName">EO</obj_property>
+   </wvobject>
+   <wvobject fp_name="/shiftregister_tb/shift_enable" type="logic">
+      <obj_property name="ElementShortName">shift_enable</obj_property>
+      <obj_property name="ObjectShortName">shift_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/shiftregister_tb/SR_tb/SHIFT_MNG/current_state" type="other">
+      <obj_property name="ElementShortName">current_state</obj_property>
+      <obj_property name="ObjectShortName">current_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/shiftregister_tb/SR_tb/SHIFT_MNG/Y" type="other">
+      <obj_property name="ElementShortName">Y</obj_property>
+      <obj_property name="ObjectShortName">Y</obj_property>
+   </wvobject>
+   <wvobject fp_name="/shiftregister_tb/SR_tb/SHIFT_MNG/count" type="other">
+      <obj_property name="ElementShortName">count</obj_property>
+      <obj_property name="ObjectShortName">count</obj_property>
+   </wvobject>
+</wave_config>

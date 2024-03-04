@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="sys_a_b_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="sys_a_b_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="143396850fs"></ZoomStartTime>
+      <ZoomEndTime time="2529396851fs"></ZoomEndTime>
+      <Cursor1Time time="640000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="220"></NameColumnWidth>
+      <ValueColumnWidth column_width="100"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="22" />
+   <wvobject fp_name="/sys_a_b_tb/start" type="logic">
+      <obj_property name="ElementShortName">start</obj_property>
+      <obj_property name="ObjectShortName">start</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/A/ROM_A/rom" type="array">
+      <obj_property name="ElementShortName">rom[7:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">rom[7:0][7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/A/CU_A/current_state" type="other">
+      <obj_property name="ElementShortName">current_state</obj_property>
+      <obj_property name="ObjectShortName">current_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/A/CU_A/address" type="array">
+      <obj_property name="ElementShortName">address[2:0]</obj_property>
+      <obj_property name="ObjectShortName">address[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/A/CU_A/count_enable" type="logic">
+      <obj_property name="ElementShortName">count_enable</obj_property>
+      <obj_property name="ObjectShortName">count_enable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/A/CU_A/wr" type="logic">
+      <obj_property name="ElementShortName">wr</obj_property>
+      <obj_property name="ObjectShortName">wr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/A/CU_A/tbe" type="logic">
+      <obj_property name="ElementShortName">tbe</obj_property>
+      <obj_property name="ObjectShortName">tbe</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/B/mem_inst/mem" type="array">
+      <obj_property name="ElementShortName">mem[7:0][7:0]</obj_property>
+      <obj_property name="ObjectShortName">mem[7:0][7:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/B/CU_B/current_state" type="other">
+      <obj_property name="ElementShortName">current_state</obj_property>
+      <obj_property name="ObjectShortName">current_state</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/data_bus" type="array">
+      <obj_property name="ElementShortName">data_bus[7:0]</obj_property>
+      <obj_property name="ObjectShortName">data_bus[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/B/CU_B/rd" type="logic">
+      <obj_property name="ElementShortName">rd</obj_property>
+      <obj_property name="ObjectShortName">rd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/B/rda_wire" type="logic">
+      <obj_property name="ElementShortName">rda_wire</obj_property>
+      <obj_property name="ObjectShortName">rda_wire</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/B/CU_B/address" type="array">
+      <obj_property name="ElementShortName">address[2:0]</obj_property>
+      <obj_property name="ObjectShortName">address[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/txd_rxd" type="logic">
+      <obj_property name="ElementShortName">txd_rxd</obj_property>
+      <obj_property name="ObjectShortName">txd_rxd</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/A/UART_A/stbeCur" type="other">
+      <obj_property name="ElementShortName">stbeCur</obj_property>
+      <obj_property name="ObjectShortName">stbeCur</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/A/UART_A/sttCur" type="other">
+      <obj_property name="ElementShortName">sttCur</obj_property>
+      <obj_property name="ObjectShortName">sttCur</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/A/UART_A/DBIN" type="array">
+      <obj_property name="ElementShortName">DBIN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DBIN[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/A/UART_A/DBOUT" type="array">
+      <obj_property name="ElementShortName">DBOUT[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DBOUT[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/B/Rs232RefComp_inst/DBIN" type="array">
+      <obj_property name="ElementShortName">DBIN[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DBIN[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/sys_a_b_tb/uut/B/Rs232RefComp_inst/DBOUT" type="array">
+      <obj_property name="ElementShortName">DBOUT[7:0]</obj_property>
+      <obj_property name="ObjectShortName">DBOUT[7:0]</obj_property>
+   </wvobject>
+</wave_config>

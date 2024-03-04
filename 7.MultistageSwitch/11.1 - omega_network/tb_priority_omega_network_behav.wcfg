@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_priority_omega_network_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="tb_priority_omega_network" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="608001fs"></ZoomEndTime>
+      <Cursor1Time time="103500fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="220"></NameColumnWidth>
+      <ValueColumnWidth column_width="100"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="17" />
+   <wvobject fp_name="/tb_priority_omega_network/input_0" type="array">
+      <obj_property name="ElementShortName">input_0[1:0]</obj_property>
+      <obj_property name="ObjectShortName">input_0[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/input_1" type="array">
+      <obj_property name="ElementShortName">input_1[1:0]</obj_property>
+      <obj_property name="ObjectShortName">input_1[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/input_2" type="array">
+      <obj_property name="ElementShortName">input_2[1:0]</obj_property>
+      <obj_property name="ObjectShortName">input_2[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/input_3" type="array">
+      <obj_property name="ElementShortName">input_3[1:0]</obj_property>
+      <obj_property name="ObjectShortName">input_3[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/dst_0" type="array">
+      <obj_property name="ElementShortName">dst_0[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dst_0[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/dst_1" type="array">
+      <obj_property name="ElementShortName">dst_1[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dst_1[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/dst_2" type="array">
+      <obj_property name="ElementShortName">dst_2[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dst_2[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/dst_3" type="array">
+      <obj_property name="ElementShortName">dst_3[1:0]</obj_property>
+      <obj_property name="ObjectShortName">dst_3[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/handler_0" type="logic">
+      <obj_property name="ElementShortName">handler_0</obj_property>
+      <obj_property name="ObjectShortName">handler_0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/handler_1" type="logic">
+      <obj_property name="ElementShortName">handler_1</obj_property>
+      <obj_property name="ObjectShortName">handler_1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/handler_2" type="logic">
+      <obj_property name="ElementShortName">handler_2</obj_property>
+      <obj_property name="ObjectShortName">handler_2</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/handler_3" type="logic">
+      <obj_property name="ElementShortName">handler_3</obj_property>
+      <obj_property name="ObjectShortName">handler_3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/output_0" type="array">
+      <obj_property name="ElementShortName">output_0[1:0]</obj_property>
+      <obj_property name="ObjectShortName">output_0[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/output_1" type="array">
+      <obj_property name="ElementShortName">output_1[1:0]</obj_property>
+      <obj_property name="ObjectShortName">output_1[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/output_2" type="array">
+      <obj_property name="ElementShortName">output_2[1:0]</obj_property>
+      <obj_property name="ObjectShortName">output_2[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/output_3" type="array">
+      <obj_property name="ElementShortName">output_3[1:0]</obj_property>
+      <obj_property name="ObjectShortName">output_3[1:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_priority_omega_network/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+</wave_config>
