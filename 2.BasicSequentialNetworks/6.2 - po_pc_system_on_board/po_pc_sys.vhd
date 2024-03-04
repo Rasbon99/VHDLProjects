@@ -9,7 +9,8 @@ entity po_pc_sys is
             clock : in STD_LOGIC;
             btn_reset : in STD_LOGIC;
             btn_read : in STD_LOGIC;
-            led_out : out STD_LOGIC_VECTOR (3 downto 0));
+            led_out : out STD_LOGIC_VECTOR (3 downto 0);
+            led_stop : out STD_LOGIC);
 end po_pc_sys;
 
 architecture Structural of po_pc_sys is
@@ -26,15 +27,17 @@ architecture Structural of po_pc_sys is
 
     component control_unit is
         Generic(N : integer range 0 to 255 := 4);
-        Port (  start : in STD_LOGIC;
-                address : in STD_LOGIC_VECTOR (log2N - 1 downto 0);
+        Port (  btn_start : in STD_LOGIC;
+                btn_read : in STD_LOGIC;
+                address : in STD_LOGIC_VECTOR (integer(ceil(log2(real(N)))) - 1 downto 0);
                 reset : in STD_LOGIC;
                 clock : in STD_LOGIC;
-                btn_read : in STD_LOGIC;
                 count_reset : out STD_LOGIC;
                 count_enable : out STD_LOGIC;
                 rom_read : out STD_LOGIC;
-                mem_write : out STD_LOGIC);
+                mem_write : out STD_LOGIC;
+                mem_read : out STD_LOGIC;
+                stop : out STD_LOGIC);
     end component;
     
     -- COUNTER MOD-N
@@ -57,21 +60,22 @@ architecture Structural of po_pc_sys is
                rom_read : in STD_LOGIC);
     end component;
     
-    -- Macchina combinatoriale M
+    -- M MACHINE
     
     component m_machine is
          Port ( m_input : in STD_LOGIC_VECTOR (7 downto 0);
                 m_output : out STD_LOGIC_VECTOR (3 downto 0));
     end component;
     
-    -- Memoria
+    -- MEMORY
     
     component mem is
         Generic(N : integer range 0 to 255 := 4);
         Port (  mem_input : in STD_LOGIC_VECTOR(3 downto 0);
-                mem_address : in STD_LOGIC_VECTOR(log2N - 1 downto 0); 
+                mem_address : in STD_LOGIC_VECTOR(integer(ceil(log2(real(N)))) - 1 downto 0); 
                 clock : in STD_LOGIC;
                 mem_write : in STD_LOGIC;
+                mem_read : in STD_LOGIC;
                 mem_output : out STD_LOGIC_VECTOR(3 downto 0));
     end component;
     
@@ -94,6 +98,7 @@ architecture Structural of po_pc_sys is
     signal count_enable_wire : STD_LOGIC := '0';
     signal read_wire : STD_LOGIC := '0';
     signal write_wire : STD_LOGIC := '0';
+    signal mem_read_wire : STD_LOGIC := '0';
     signal rom_output : STD_LOGIC_VECTOR (7 downto 0) := (others => '0');
     signal m_output : STD_LOGIC_VECTOR (3 downto 0) := (others => '0');
     
@@ -104,7 +109,7 @@ architecture Structural of po_pc_sys is
     begin
         
         CU : control_unit generic map (N => N) port map (
-            start => start_in_wire,
+            btn_start => start_in_wire,
             address => address_wire,
             reset => reset,
             clock => clock,
@@ -112,7 +117,9 @@ architecture Structural of po_pc_sys is
             count_reset => count_reset_wire,
             count_enable => count_enable_wire,
             rom_read => read_wire,
-            mem_write => write_wire);
+            mem_read => mem_read_wire,
+            mem_write => write_wire,
+            stop => led_stop);
             
         ROM : rom_seq generic map (N => N) port map (
             rom_address => address_wire,
@@ -129,6 +136,7 @@ architecture Structural of po_pc_sys is
             mem_address => address_wire,
             clock => clock,
             mem_write => write_wire,
+            mem_read => mem_read_wire,
             mem_output => led_out);
             
         COUNTER : counter_mod_n generic map (N_cmn => N) port map (
@@ -147,8 +155,8 @@ architecture Structural of po_pc_sys is
             CLK => clock,
             RST => reset,
             BTN => btn_start,
-            CLEARED_BTN => start_in_wire);                      
-
+            CLEARED_BTN => start_in_wire);
+            
         reset <= not btn_reset;
         
 end Structural;
