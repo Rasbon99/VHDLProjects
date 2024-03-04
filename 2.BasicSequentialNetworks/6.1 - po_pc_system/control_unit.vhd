@@ -24,15 +24,6 @@ architecture Behavioral of control_unit is
     signal current_state : state := idle;
     signal next_state : state;
     
-    -- Last_cycle: segnale di flag per l'esecuzione
-    -- dell'ultimo ciclo di read-wait-write dell'ultima
-    -- locazione; viene attivato nella write se il conteggio
-    -- (address) è arrivato a N-1. Una volta ritornato
-    -- in write, se il last_cycle = 1 allora si alza stop
-    -- e si torna in idle.
-    
-    signal last_cycle : STD_LOGIC := '0';
-    
     begin
         transition_proc: process (clock)
             begin
