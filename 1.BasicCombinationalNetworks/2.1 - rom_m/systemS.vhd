@@ -16,7 +16,7 @@ architecture structural of systemS is
                 data : out STD_LOGIC_VECTOR (7 downto 0));
     end component;
     
-    component m_machine
+    component encoder
         Port ( x : in STD_LOGIC_VECTOR (7 downto 0);
                z : out STD_LOGIC_VECTOR (3 downto 0));
     end component;
@@ -26,7 +26,7 @@ architecture structural of systemS is
             address => a,
             data => u);
         
-        enc: m_machine port map(
+        enc: encoder port map(
             x => u,
             z => y);
             
