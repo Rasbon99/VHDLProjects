@@ -4,8 +4,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity systemS is
     Port ( a : in STD_LOGIC_VECTOR (3 downto 0);
-           y : out STD_LOGIC_VECTOR (3 downto 0);
-           e: in STD_LOGIC);
+           y : out STD_LOGIC_VECTOR (3 downto 0));
 end systemS;
 
 architecture structural of systemS is
@@ -14,11 +13,10 @@ architecture structural of systemS is
 
     component rom_comb                  
         Port (  address : in STD_LOGIC_VECTOR (3 downto 0);
-                data : out STD_LOGIC_VECTOR (7 downto 0);
-                enable : in STD_LOGIC);
+                data : out STD_LOGIC_VECTOR (7 downto 0));
     end component;
     
-    component encoder
+    component m_machine
         Port ( x : in STD_LOGIC_VECTOR (7 downto 0);
                z : out STD_LOGIC_VECTOR (3 downto 0));
     end component;
@@ -26,10 +24,9 @@ architecture structural of systemS is
     begin
         rom: rom_comb port map(
             address => a,
-            data => u,
-            enable => e );
+            data => u);
         
-        enc: encoder port map(
+        enc: m_machine port map(
             x => u,
             z => y);
             

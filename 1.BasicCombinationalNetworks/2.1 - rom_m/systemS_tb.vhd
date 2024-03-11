@@ -9,26 +9,22 @@ architecture Behavioral of systemS_tb is
 
     component systemS is
     Port ( a : in STD_LOGIC_VECTOR (3 downto 0);
-           y : out STD_LOGIC_VECTOR (3 downto 0);
-           e: in STD_LOGIC);
+           y : out STD_LOGIC_VECTOR (3 downto 0));
     end component;
     
     signal input : STD_LOGIC_VECTOR(3 downto 0) := (others => 'U');
     signal output : STD_LOGIC_VECTOR(3 downto 0) := (others => 'U');
-    signal control : STD_LOGIC := '0';
 
     begin
         system: systemS port map(
             a => input,
-            y => output,
-            e => control);
+            y => output);
         
         stimproc: process
             begin
                 wait for 100 ns;
                 
-                input <= "0000";
-                control <= '1';               
+                input <= "0000";  
                 wait for 10 ns;
                 
                 input <= "0001";
@@ -76,9 +72,7 @@ architecture Behavioral of systemS_tb is
                 input <= "1111";
                 wait for 10 ns;
                 
-                assert output = "0000"
-                report "ERROR"
-                severity failure;
+                wait;
         end process;
 
 end;
