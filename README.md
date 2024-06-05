@@ -1,8 +1,4 @@
-# VHDLProjects
-This repository contains projects developed by Team 11 for the Digital Systems Architecture exam as part of the Master's degree in Computer Engineering at the University of Naples "Federico II". 
-
-<img src="https://raw.githubusercontent.com/Rasbon99/VHDLProjects/main/assets/logo.png" alt="drawing" width="70"/> powered by ElevenMeatballs.
-# Project Title: Digital Systems Architecture
+# Digital Systems Architecture Paper
 
 ## Overview
 
@@ -170,3 +166,6 @@ The appendix contains additional details, including VHDL code snippets, simulati
 Leonardo Catello
 Lorenzo Manco
 Ilaria Saulino 
+<img src="https://raw.githubusercontent.com/Rasbon99/VHDLProjects/main/assets/logo.png" alt="drawing" width="70"/> powered by ElevenMeatballs.
+
+
