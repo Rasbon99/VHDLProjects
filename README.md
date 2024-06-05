@@ -21,6 +21,7 @@ This project explores the design, implementation, and testing of various digital
 8. [Multistage Switch](#multistage-switch)
 9. [Appendix](#appendix)
 10. [Authors](#authors)
+11. [License](#license)
 
 ## Introduction
 
@@ -163,9 +164,11 @@ A testbench verifies the multistage switch by simulating data routing operations
 The appendix contains additional details, including VHDL code snippets, simulation results, and explanations of design choices.
 
 ## Authors
-Leonardo Catello
-Lorenzo Manco
-Ilaria Saulino 
+- [Leonardo Catello](https://github.com/Leonard2310) 
+- [Lorenzo Manco](https://github.com/Rasbon99) 
+- [Ilaria Saulino](https://github.com/ilaria-xx)
 <img src="https://raw.githubusercontent.com/Rasbon99/VHDLProjects/main/assets/logo.png" alt="drawing" width="70"/> powered by ElevenMeatballs.
 
+## License
+This project is licensed under the [GNU General Public License v3.0]. Refer to the LICENSE file for more information.
 
