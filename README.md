@@ -164,12 +164,12 @@ A testbench verifies the multistage switch by simulating data routing operations
 The appendix contains additional details, including VHDL code snippets, simulation results, and explanations of design choices.
 
 ## Authors
-<img src="https://raw.githubusercontent.com/Rasbon99/VHDLProjects/main/assets/logo.png" alt="drawing" width="70"/> powered by ElevenMeatballs.
-
 - [Leonardo Catello](https://github.com/Leonard2310) 
 - [Lorenzo Manco](https://github.com/Rasbon99) 
 - [Ilaria Saulino](https://github.com/ilaria-xx)
 
 ## License
 This project is licensed under the [GNU General Public License v3.0]. Refer to the LICENSE file for more information.
+
+<img src="https://raw.githubusercontent.com/Rasbon99/VHDLProjects/main/assets/logo.png" alt="drawing" width="70"/> powered by ElevenMeatballs.
 
