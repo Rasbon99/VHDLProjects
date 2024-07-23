@@ -1,4 +1,4 @@
-# Digital Systems Architecture Paper
+# Digital Systems Architecture and Implementation
 
 ## Overview
 
